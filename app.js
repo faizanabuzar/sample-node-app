@@ -1,13 +1,11 @@
 const http = require('http');
-
-// Generate a random number on app start
-const deployId = Math.floor(Math.random() * 100000);
+const port = 3000;
+const random = Math.floor(Math.random() * 1000);
 
 const server = http.createServer((req, res) => {
-  res.end(`Hello from Jenkins + Sonar! Deploy ID: ${deployId}`);
+  res.end(`Hello from Node.js app! Random: ${random}`);
 });
 
-server.listen(3000, () => {
-  console.log(`Server running on http://localhost:3000`);
-  console.log(`Deploy ID: ${deployId}`);
+server.listen(port, () => {
+  console.log(`App running on http://localhost:${port}`);
 });
